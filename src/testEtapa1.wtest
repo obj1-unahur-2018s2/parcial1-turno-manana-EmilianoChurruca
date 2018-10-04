@@ -1,0 +1,51 @@
+import universidades.*
+import empresas.*
+import profesionales.*
+
+test "tests primera parte" {
+		
+	const sanMartin = new Universidad()
+	const rosario = new Universidad() 
+	const corrientes = new Universidad()
+	const hurlingham = new Universidad()
+	const juana = new ProfesionalVinculado()
+	const melina = new ProfesionalAsociado()
+	const rocio = new ProfesionalLibre()
+	const luciana = new ProfesionalLibre()
+	const empresa = new Empresas()
+	
+	sanMartin.provincia("Buenos Aires")
+	sanMartin.honorariosRecomendados(3500)
+	rosario.provincia("Santa Fe")
+	rosario.honorariosRecomendados(2800)
+	corrientes.provincia("Corrientes")
+	corrientes.honorariosRecomendados(4200)
+	hurlingham.provincia("Buenos Aires")
+	hurlingham.honorariosRecomendados(8800)
+	juana.universidad(rosario)
+	juana.provinciasDondePuedeTrabajar()
+	melina.universidad(corrientes)
+	rocio.universidad(hurlingham)
+	rocio.honorariosPorHora(5000)
+	rocio.provinciasDondePuedeTrabajar(#{"Santa Fe", "Córdoba", "Buenos Aires"})
+	luciana.universidad(rosario)
+	luciana.honorariosPorHora(3200)
+	luciana.provinciasDondePuedeTrabajar(#{"Santa Fe", "Entre Ríos"})
+	empresa.honorarioReferencia(3500)
+	empresa.agregarEmpleado(melina)
+	empresa.agregarEmpleado(rocio)
+	empresa.agregarEmpleado(luciana)
+	empresa.agregarEmpleado(juana)
+	
+	assert.equals([rocio], empresa.profesionalesCaros())
+	assert.equals(#{"Rosario", "Corrientes", "Hurlingham"},empresa.universidadesFormadoras())
+	}
+	
+	
+	
+	
+	
+	
+	
+
+ 
