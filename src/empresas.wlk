@@ -39,4 +39,8 @@ class Empresas {
 	method esPocoAtractivo(empleado){
 		return empleado.provinciasDondePuedeTrabajar({valor => valor.honorariosPorHora()})
 	}
+	
+	
+	
 }
+

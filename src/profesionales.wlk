@@ -59,6 +59,7 @@ class ProfesionalLibre {
 	var universidad
 	var provinciaATrabajar = #{ }
 	var honorarios
+	var sueldoAcumulado = 0
 	
 	method universidad() { 
 		return universidad
@@ -77,6 +78,13 @@ class ProfesionalLibre {
 	}
 	method honorariosPorHora() {
 		return honorarios
+	}
+	method sueldo(facultad, valor) {
+		sueldoAcumulado += valor
+	}
+	method pasarDinero(persona, valor){
+		sueldoAcumulado -= valor
+		persona.sueldo(persona, valor)	
 	}
 }
 
