@@ -18,7 +18,9 @@ class Empresas {
 		empleados.remove(empleado)
 	}
 	method profesionalesCaros() {
-		return empleados.filter({honorario => honorario.honorariosPorHora() > honorarioReferencia})
+		return empleados.filter(
+			{honorario => honorario.honorariosPorHora() > honorarioReferencia}
+		)
 	}
 	method universidadesFormadoras() {
 		return (empleados.map({lugar => lugar.universidad()})).asSet()
@@ -27,10 +29,12 @@ class Empresas {
 		return empleados.min({ honorario => honorario.honorariosPorHora()})
 	}
 	method provinciaCubierta(provincias){
-		return empleados.contains({provincia => provincia.provincia() == provincias })
+		return empleados.any(
+			{provincia => provincia.provinciasDondePuedeTrabajar() == provincias }
+		)
 	}
-	method empleadosDeProvincia(provincia) {
-		return empleados.count({lugar => lugar.provincia() == provincia })
+	method empleadosPorProvincia(provincia) {
+		return empleados.count({lugar => lugar.universidad() == provincia  })
 	}
 	method esPocoAtractivo(empleado){
 		return empleado.provinciasDondePuedeTrabajar({valor => valor.honorariosPorHora()})

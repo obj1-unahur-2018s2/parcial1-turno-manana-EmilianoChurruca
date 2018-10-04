@@ -1,6 +1,8 @@
 class Universidad {
 	var provincias
 	var honorario
+	var totalRecaudado = 0
+	
 	
 	method provincia(lugar) {
 		provincias = lugar	
@@ -14,4 +16,10 @@ class Universidad {
 	method honorariosRecomendados() {
 		return honorario 
 	}
+	
+	method recaudar(valor) {
+		return totalRecaudado += valor
+		
+	}
+	
 }

@@ -18,6 +18,17 @@ class ProfesionalAsociado {
 	method honorariosPorHora() { 
 		return 3000
 	}
+	method sueldo(facultad, valor){
+		return asociacion.recaudar(valor)
+	}
+}
+
+
+object asociacion {
+	var totalRecaudado = 0 
+	method recaudar(valor) {
+		return totalRecaudado += valor
+	}
 }
 
 
@@ -36,6 +47,9 @@ class ProfesionalVinculado {
 	}
 	method honorariosPorHora() {
 		return universidad.honorariosRecomendados()
+	}	
+	method sueldo(facultad , valor){
+		return universidad.recaudar(valor/2)
 	}
 }
 
